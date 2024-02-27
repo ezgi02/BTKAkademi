@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BTKAkademi.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BTKAkademi.Controllers
 {
@@ -22,7 +23,13 @@ namespace BTKAkademi.Controllers
         }
         public IActionResult Index3()//hem content hen-m viewi içeriir
         {
-            return Content("Employee");//Content **ContentResult demek daha mantıklı
+            var list = new List<Employee>()
+            {
+                new Employee(){Id=1,FirstName="Ahmet",LastName="Can",Age=20 },
+                new Employee(){Id=2,FirstName="Veli",LastName="Dağ",Age=30 },
+                new Employee(){Id=3,FirstName="Mehmet",LastName="Ziya",Age=45 }
+            };
+            return View("Index3",list);//Content **ContentResult demek daha mantıklı
         }
 
     }
